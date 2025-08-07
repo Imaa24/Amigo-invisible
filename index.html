@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo Amigo Invisible</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="particles" id="particles"></div>
+        
+        <div class="gift-icon">🎁</div>
+        <h1>Amigo Invisible</h1>
+        <p class="subtitle">Agrega los nombres para el sorteo</p>
+
+        <div class="contador" id="contador">Nombres agregados: 0 (mínimo 3)</div>
+
+        <div class="nombres-container" id="nombresContainer">
+            <div class="input-group">
+                <input type="text" placeholder="Nombre 1" maxlength="30" oninput="actualizarContador()">
+                <button class="remove-btn" onclick="removerNombre(this)" title="Eliminar nombre">×</button>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Nombre 2" maxlength="30" oninput="actualizarContador()">
+                <button class="remove-btn" onclick="removerNombre(this)" title="Eliminar nombre">×</button>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Nombre 3" maxlength="30" oninput="actualizarContador()">
+                <button class="remove-btn" onclick="removerNombre(this)" title="Eliminar nombre">×</button>
+            </div>
+        </div>
+
+        <button class="add-btn" onclick="agregarNombre()">
+            ➕ Agregar otro nombre
+        </button>
+
+        <div class="error-msg" id="errorMsg">
+            Necesitas al menos 3 nombres para realizar el sorteo
+        </div>
+
+        <button class="sorteo-btn" onclick="realizarSorteo()" id="sorteoBtn">
+            🎲 Realizar Sorteo
+        </button>
+
+        <div class="resultado" id="resultado">
+            <h3>¡Tu amigo invisible es:</h3>
+            <div class="nombre-sorteado" id="nombreSorteado"></div>
+            <button class="reset-btn" onclick="reiniciar()">🔄 Nuevo Sorteo</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
